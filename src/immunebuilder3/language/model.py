@@ -2,9 +2,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional
 
-import numpy as np
 import numpy.typing as npt
-import pandas as pd
 import torch
 from lightning import Trainer
 from lightning.pytorch import LightningModule, Trainer
@@ -25,7 +23,7 @@ class ProtTrans:
     model_type: str
     paired: bool
     batch_size: int = 1
-    device_map: str = 'auto'
+    accelerator: str = "auto"
     tokeniser: PreTrainedTokenizer = field(init=False)
     seperator_token: Optional[str] = field(init=False)
     trainer: Optional[Trainer] = field(init=False)
@@ -35,7 +33,7 @@ class ProtTrans:
             raise ValueError(f"Model should be 'bert' or 't5'. Got {self.model_type=}.")
 
         self.embedding_module = ProtTransEmbedder(
-            weights_dir=self.weights_dir, model_type=self.model_type, device_map=self.device_map
+            weights_dir=self.weights_dir, model_type=self.model_type
         )
 
         if self.model_type == "bert":
@@ -52,7 +50,7 @@ class ProtTrans:
         elif self.paired and self.model_type == "t5":
             self.seperator_token = "</s>"
 
-        self.trainer = Trainer(num_nodes=1, devices=1)
+        self.trainer = Trainer(accelerator=self.accelerator, num_nodes=1, devices=1)
 
     def collate_fn(self, batch: list[str]) -> BatchEncoding:
         sequences = [list(seq) for seq in batch]
@@ -99,7 +97,6 @@ class ProtTransEmbedder(LightningModule):
         self,
         weights_dir: Path,
         model_type: str,
-        device_map: str,
     ) -> None:
         super().__init__()
         if model_type not in ["bert", "t5"]:
@@ -109,10 +106,10 @@ class ProtTransEmbedder(LightningModule):
 
         if model_type == "bert":
             self.model = BertModel.from_pretrained(
-                self.weights_dir, add_pooling_layer=False, device_map=device_map
+                self.weights_dir, add_pooling_layer=False
             )
         elif model_type == "t5":
-            self.model = T5EncoderModel.from_pretrained(self.weights_dir, device_map=device_map)
+            self.model = T5EncoderModel.from_pretrained(self.weights_dir)
 
         if self.model_type == "bert":
             self.seperator_token_id = 3
@@ -125,9 +122,7 @@ class ProtTransEmbedder(LightningModule):
             raise ValueError("Not implemented for batchsize > 1.")
         embedding_matrix = self.model(
             input_ids=batch["input_ids"], attention_mask=batch["attention_mask"]
-        )[
-            "last_hidden_state"
-        ]  # (B, n, d)
+        )["last_hidden_state"]  # (B, n, d)
         special_token_mask = (
             batch["special_tokens_mask"].bool() | batch["input_ids"]
             == self.seperator_token_id
