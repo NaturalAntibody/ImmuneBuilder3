@@ -34,10 +34,10 @@ import torch
 import torch.nn as nn
 from scipy.stats import truncnorm
 
-from abodybuilder3.openfold.utils.checkpointing import get_checkpoint_fn
-from abodybuilder3.openfold.utils.chunk_utils import _chunk_slice
-from abodybuilder3.openfold.utils.precision_utils import is_fp16_enabled
-from abodybuilder3.openfold.utils.tensor_utils import (
+from immunebuilder3.openfold.utils.checkpointing import get_checkpoint_fn
+from immunebuilder3.openfold.utils.chunk_utils import _chunk_slice
+from immunebuilder3.openfold.utils.precision_utils import is_fp16_enabled
+from immunebuilder3.openfold.utils.tensor_utils import (
     flatten_final_dims,
     permute_final_dims,
 )

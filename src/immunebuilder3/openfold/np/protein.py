@@ -24,7 +24,7 @@ from typing import Any, Mapping, Optional, Sequence
 import numpy as np
 from Bio.PDB import PDBParser
 
-from abodybuilder3.openfold.np import residue_constants
+from immunebuilder3.openfold.np import residue_constants
 
 FeatureDict = Mapping[str, np.ndarray]
 ModelOutput = Mapping[str, Any]  # Is a nested dict.

@@ -14,8 +14,8 @@ from lightning.pytorch.callbacks import (
 )
 from loguru import logger
 
-from abodybuilder3.lightning_module import ABB3DataModule, LitABB3
-from abodybuilder3.utils import DelayedEarlyStopping
+from immunebuilder3.lightning_module import ABB3DataModule, LitABB3
+from immunebuilder3.utils import DelayedEarlyStopping
 
 
 class FineTuneCallback(Callback):

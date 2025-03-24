@@ -5,12 +5,12 @@ import numpy as np
 import torch
 from lightning.pytorch.callbacks import EarlyStopping
 
-from abodybuilder3.dataloader import ABDataset
-from abodybuilder3.openfold.data.data_transforms import make_atom14_masks
-from abodybuilder3.openfold.np.protein import Protein, to_pdb
-from abodybuilder3.openfold.np.relax.cleanup import fix_pdb
-from abodybuilder3.openfold.np.residue_constants import restype_order_with_x
-from abodybuilder3.openfold.utils.feats import atom14_to_atom37
+from immunebuilder3.dataloader import ABDataset
+from immunebuilder3.openfold.data.data_transforms import make_atom14_masks
+from immunebuilder3.openfold.np.protein import Protein, to_pdb
+from immunebuilder3.openfold.np.relax.cleanup import fix_pdb
+from immunebuilder3.openfold.np.residue_constants import restype_order_with_x
+from immunebuilder3.openfold.utils.feats import atom14_to_atom37
 
 log = logging.getLogger(__name__)
 

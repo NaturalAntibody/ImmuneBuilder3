@@ -4,10 +4,10 @@ from torch.optim import AdamW
 from torch.optim.lr_scheduler import LambdaLR, LinearLR, SequentialLR
 from torch.utils.data import DataLoader
 
-from abodybuilder3.dataloader import ABDataset, collate_fn
-from abodybuilder3.loss import ABB3Loss
-from abodybuilder3.openfold.model.structure_module import StructureModule
-from abodybuilder3.radam import RAdam
+from immunebuilder3.dataloader import ABDataset, collate_fn
+from immunebuilder3.loss import ABB3Loss
+from immunebuilder3.openfold.model.structure_module import StructureModule
+from immunebuilder3.radam import RAdam
 
 
 class ABB3DataModule(pl.LightningDataModule):

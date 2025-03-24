@@ -9,11 +9,11 @@ from loguru import logger
 from tqdm import tqdm
 import typer
 
-from abodybuilder3.lightning_module import ABB3DataModule, LitABB3
+from immunebuilder3.lightning_module import ABB3DataModule, LitABB3
 
-from abodybuilder3.openfold.np.protein import Protein, to_pdb
-from abodybuilder3.openfold.np.relax.cleanup import fix_pdb
-from abodybuilder3.openfold.utils.feats import (
+from immunebuilder3.openfold.np.protein import Protein, to_pdb
+from immunebuilder3.openfold.np.relax.cleanup import fix_pdb
+from immunebuilder3.openfold.utils.feats import (
     atom14_to_atom37 as openfold_atom14_to_atom37,
 )
 

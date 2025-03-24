@@ -1,7 +1,7 @@
 import torch
 from torch.utils.data import DataLoader
 
-from abodybuilder3.dataloader import ABDataset, collate_fn
+from immunebuilder3.dataloader import ABDataset, collate_fn
 
 
 def aligned_fv_and_cdrh3_rmsd(

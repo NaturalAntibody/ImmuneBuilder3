@@ -20,8 +20,8 @@ import loguru
 import ml_collections
 import torch
 
-from abodybuilder3.loss.aligned_rmsd import aligned_fv_and_cdrh3_rmsd
-from abodybuilder3.openfold.utils.loss import (
+from immunebuilder3.loss.aligned_rmsd import aligned_fv_and_cdrh3_rmsd
+from immunebuilder3.openfold.utils.loss import (
     compute_renamed_ground_truth,
     fape_loss,
     final_output_backbone_loss,

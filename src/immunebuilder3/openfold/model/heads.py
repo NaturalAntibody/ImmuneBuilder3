@@ -16,8 +16,8 @@
 
 import torch.nn as nn
 
-from abodybuilder3.openfold.model.primitives import LayerNorm, Linear
-from abodybuilder3.openfold.utils.loss import (
+from immunebuilder3.openfold.model.primitives import LayerNorm, Linear
+from immunebuilder3.openfold.utils.loss import (
     compute_plddt,
     compute_predicted_aligned_error,
     compute_tm,

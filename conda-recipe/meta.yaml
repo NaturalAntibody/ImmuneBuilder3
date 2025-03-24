@@ -1,5 +1,5 @@
 package:
-  name: abodybuilder3
+  name: immunebuilder3
   version: "_CONDA_PACKAGE_VERSION"
 build:
   noarch: python

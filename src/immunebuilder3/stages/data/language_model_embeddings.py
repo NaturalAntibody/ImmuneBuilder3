@@ -8,7 +8,7 @@ import pandas as pd
 import torch
 from tqdm import trange
 
-from abodybuilder3.language.model import PairedIgT5, ProtBert, ProtT5, ProtTrans
+from immunebuilder3.language.model import PairedIgT5, ProtBert, ProtT5, ProtTrans
 
 
 def process_chunk(

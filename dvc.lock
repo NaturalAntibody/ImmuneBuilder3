@@ -11,7 +11,7 @@ stages:
       md5: e1965d41201a3bd4c0ea8881f8df8f1c
       size: 51
   combine_dfs:
-    cmd: python src/abodybuilder3/stages/data/combine_data_dfs.py
+    cmd: python src/immunebuilder3/stages/data/combine_data_dfs.py
     deps:
     - path: data/data.tar.gz.hash
       md5: e1965d41201a3bd4c0ea8881f8df8f1c
@@ -24,7 +24,7 @@ stages:
       md5: 1e15be365726adeeb2c40890893548ab
       size: 6033272
   embeddings:
-    cmd: python src/abodybuilder3/stages/data/language_model_embeddings.py
+    cmd: python src/immunebuilder3/stages/data/language_model_embeddings.py
     deps:
     - path: data/structures/summary_df.csv
       md5: 1e15be365726adeeb2c40890893548ab
@@ -50,7 +50,7 @@ stages:
       md5: 4742735d41a9fe7318c456c169adc478
       size: 72
   cluster:
-    cmd: python src/abodybuilder3/stages/data/cluster_data.py
+    cmd: python src/immunebuilder3/stages/data/cluster_data.py
     deps:
     - path: data/structures/summary_df.csv
       md5: 1e15be365726adeeb2c40890893548ab
@@ -65,7 +65,7 @@ stages:
       md5: fcdbf74ff2d8995da77075d79671ba20
       size: 260832
   filter:
-    cmd: python src/abodybuilder3/stages/data/filter_data.py
+    cmd: python src/immunebuilder3/stages/data/filter_data.py
     deps:
     - path: data/structures/summary_df.csv
       md5: 1e15be365726adeeb2c40890893548ab
@@ -83,7 +83,7 @@ stages:
       md5: c3767cf2580815f26546ff2189d161e7
       size: 904862
   split:
-    cmd: python src/abodybuilder3/stages/data/split_data.py
+    cmd: python src/immunebuilder3/stages/data/split_data.py
     deps:
     - path: data/clusters.csv
       md5: fcdbf74ff2d8995da77075d79671ba20

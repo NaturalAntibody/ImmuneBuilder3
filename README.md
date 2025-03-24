@@ -39,29 +39,29 @@ A simple example of using the model is given in `notebooks/example.ipynb`.
 The repo comes with pre-specified data filtering (specified in `data/filters.csv`) and
 splits (specified in `data/split.csv`). If you want to reproduce these steps then run 
 
-1. `python src/abodybuilder3/stages/data/combine_data_dfs.py`
-2. `python src/abodybuilder3/stages/data/filter_data.py`
-3. `python src/abodybuilder3/stages/data/split_data.py`
+1. `python src/immunebuilder3/stages/data/combine_data_dfs.py`
+2. `python src/immunebuilder3/stages/data/filter_data.py`
+3. `python src/immunebuilder3/stages/data/split_data.py`
 
 ## Embed sequences using language model 
 
 Pre-computed language model embeddings are provided in `data/structures/structures_plm`
 after running `download.sh`. If you wish to regenerate then run
 
-`python src/abodybuilder3/stages/data/language_model_embeddings.py`
+`python src/immunebuilder3/stages/data/language_model_embeddings.py`
 
 ## Train model
 
 The model can be trained using
  
-1. `python src/abodybuilder3/stages/train.py`
-2. `python src/abodybuilder3/stages/finetune.py`
+1. `python src/immunebuilder3/stages/train.py`
+2. `python src/immunebuilder3/stages/finetune.py`
 
 ## Inference and evaluation
 
 The model can be used to predict structures from the validation and test set using 
 
-`python src/abodybuilder3/stages/inference.py`
+`python src/immunebuilder3/stages/inference.py`
 
 For general sequences inputs can be prepared following the examples given in `notebooks/example.ipynb`.
 

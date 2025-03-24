@@ -21,10 +21,10 @@ import numpy as np
 import torch
 import torch.nn as nn
 
-import abodybuilder3.openfold.np.residue_constants as rc
-from abodybuilder3.openfold.np import protein
-from abodybuilder3.openfold.utils.rigid_utils import Rigid, Rotation
-from abodybuilder3.openfold.utils.tensor_utils import (
+import immunebuilder3.openfold.np.residue_constants as rc
+from immunebuilder3.openfold.np import protein
+from immunebuilder3.openfold.utils.rigid_utils import Rigid, Rotation
+from immunebuilder3.openfold.utils.tensor_utils import (
     batched_gather,
     one_hot,
     tensor_tree_map,

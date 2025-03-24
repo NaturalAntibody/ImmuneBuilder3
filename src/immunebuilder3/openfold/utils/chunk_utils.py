@@ -19,7 +19,7 @@ from typing import Any, Callable, Dict, List, Optional, Sequence, Tuple
 
 import torch
 
-from abodybuilder3.openfold.utils.tensor_utils import tensor_tree_map, tree_map
+from immunebuilder3.openfold.utils.tensor_utils import tensor_tree_map, tree_map
 
 
 def _fetch_dims(tree):

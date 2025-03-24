@@ -25,10 +25,10 @@ import torch
 import torch.nn as nn
 from torch.distributions.bernoulli import Bernoulli
 
-from abodybuilder3.openfold.np import residue_constants
-from abodybuilder3.openfold.utils import feats
-from abodybuilder3.openfold.utils.rigid_utils import Rigid, Rotation
-from abodybuilder3.openfold.utils.tensor_utils import (
+from immunebuilder3.openfold.np import residue_constants
+from immunebuilder3.openfold.utils import feats
+from immunebuilder3.openfold.utils.rigid_utils import Rigid, Rotation
+from immunebuilder3.openfold.utils.tensor_utils import (
     batched_gather,
     masked_mean,
     permute_final_dims,

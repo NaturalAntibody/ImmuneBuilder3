@@ -21,15 +21,15 @@ from operator import add
 import numpy as np
 import torch
 
-from abodybuilder3.openfold.config import (
+from immunebuilder3.openfold.config import (
     NUM_EXTRA_SEQ,
     NUM_MSA_SEQ,
     NUM_RES,
     NUM_TEMPLATES,
 )
-from abodybuilder3.openfold.np import residue_constants as rc
-from abodybuilder3.openfold.utils.rigid_utils import Rigid, Rotation
-from abodybuilder3.openfold.utils.tensor_utils import (
+from immunebuilder3.openfold.np import residue_constants as rc
+from immunebuilder3.openfold.utils.rigid_utils import Rigid, Rotation
+from immunebuilder3.openfold.utils.tensor_utils import (
     batched_gather,
     tensor_tree_map,
     tree_map,

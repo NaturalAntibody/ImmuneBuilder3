@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [tool.setuptools_scm]
 local_scheme = "dirty-tag"
 version_scheme = "no-guess-dev"
-write_to = "src/abodybuilder3/_version.py"
+write_to = "src/immunebuilder3/_version.py"
 
 [tool.black]
 line-length = 88
@@ -41,7 +41,7 @@ ignore = [
 
 [tool.ruff.isort]
 known-first-party = [
-    "abodybuilder3",
+    "immunebuilder3",
 ]
 
 [tool.pytest.ini_options]
@@ -54,7 +54,7 @@ log_cli_level = "WARNING"
 log_cli_format = "%(levelname)s:%(name)s: %(message)s"
 
 [tool.coverage.run]
-source_pkgs = ['abodybuilder3']
+source_pkgs = ['immunebuilder3']
 
 [tool.coverage.report]
 exclude_lines = [
