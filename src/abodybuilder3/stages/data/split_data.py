@@ -5,13 +5,13 @@ The original validation and test set (which I call test sets for the rest of thi
 docstring) will be subsets of the new test sets. New validation and test sets will
 be human only structures at a max resolution of 2.3 (similar to the original test set).
 
-Contamination is avoided by sequence similirty. Further contamination can be avoided by considering sequence clusters. 
+Contamination is avoided by sequence similirty. Further contamination can be avoided by considering sequence clusters.
 
 The output of this script is split.csv which includes the following columns
 - structure - unique identifier
 - in_legacy - if the structure is in the original dataset
 - split - train, valid, test or unassigned (repeat sequences or sequences in a test set in the same cluster are unassigned).
-- legacy_test_split - for structures in the test sets, this is a boolean indicating if its in the original validation or test set 
+- legacy_test_split - for structures in the test sets, this is a boolean indicating if its in the original validation or test set
 
 Furthermore, another dataframe is outputted called valid_test_set_similarity.csv which for each element of the test sets gives the Levenshtein to all sequences in the training set. This is done for full sequence and concatenaded cdr pseudo-sequences.
 """
@@ -22,8 +22,8 @@ from pathlib import Path
 import dvc.api
 import numpy as np
 import pandas as pd
-from Levenshtein import ratio
 from loguru import logger
+from rapidfuzz.fuzz import ratio
 from tqdm import tqdm
 
 # from https://github.com/oxpig/ImmuneBuilder/blob/main/data/antibody_data.csv
@@ -183,8 +183,8 @@ def main(
         split_df.query("cluster not in @test_clusters")
         .query(f"cluster_size <= {valid_test_max_cluster_size}")
         .query(f"resolution < {test_valid_resolution_cutoff}")
-        .query(f"resolution > 0")
-        .query(f"missing_residues == 0")
+        .query("resolution > 0")
+        .query("missing_residues == 0")
         .query('species=="HOMO SAPIENS"')
         .query(f"cdrh3_length <= {test_valid_cdrh3_cutoff}")
     ).drop_duplicates("cluster")
@@ -204,8 +204,8 @@ def main(
         split_df.query("cluster not in @valid_and_test_clusters")
         .query(f"cluster_size <= {valid_test_max_cluster_size}")
         .query(f"resolution < {test_valid_resolution_cutoff}")
-        .query(f"resolution > 0")
-        .query(f"missing_residues == 0")
+        .query("resolution > 0")
+        .query("missing_residues == 0")
         .query('species=="HOMO SAPIENS"')
         .query(f"cdrh3_length <= {test_valid_cdrh3_cutoff}")
     ).drop_duplicates("cluster")

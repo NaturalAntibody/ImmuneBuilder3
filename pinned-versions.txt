@@ -285,8 +285,6 @@ kombu==5.3.4
     # via
     #   celery
     #   dvc-task
-levenshtein==0.23.0
-    # via abodybuilder3 (setup.cfg)
 lightning==2.1.2
     # via abodybuilder3 (setup.cfg)
 lightning-utilities==0.10.0
@@ -516,7 +514,7 @@ pyzmq==25.1.2
     #   ipykernel
     #   jupyter-client
 rapidfuzz==3.5.2
-    # via levenshtein
+    # via abodybuilder3 (setup.cfg)
 referencing==0.32.0
     # via
     #   jsonschema
